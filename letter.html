@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>จดหมาย To_P'Geno_</title>
+
+<style>
+
+body {
+  background-color: #fc8ce3; /* พื้นหลังสีชมพู */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* ซ่อน checkbox */
+#open {
+  display: none;
+}
+
+/* ซองจดหมาย */
+.envelope {
+  z-index: 1;
+  width: 380px;
+  height: 250px;
+  background-color: #b87434; /* สีน้ำตาล */
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-image: 
+    linear-gradient(to bottom right, transparent 48%, #5a3b1a 49%, #5a3b1a 51%, transparent 52%),
+    linear-gradient(to bottom left, transparent 48%, #5a3b1a 49%, #5a3b1a 51%, transparent 52%);
+
+}
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #b87434; /* สีน้ำตาลเดียวกับซอง */
+    /* ตัดกระดาษให้เป็นรูปตัว V เพื่อโชว์จดหมายข้างหลัง */
+    clip-path: polygon(0 35%, 50% 100%, 100% 35%, 100% 100%, 0 100%);
+    z-index: 2; /* ให้หน้าซองอยู่หน้าสุด */
+}
+/* กระดาษข้างใน */
+.letter {
+  z-index: 1;
+  width: 340px;
+  height: auto;
+  min-height: 160px;
+  background-color: white; /* กระดาษสีขาว */
+  position: absolute;
+  bottom: -250px;
+  left: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: 0.8s;
+}
+/* ข้อความด้านใน */
+.letter p {
+  color: #c71585; /* ตัวหนังสือสีชมพูเข้ม */
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+#open:checked + .envelope {
+    overflow: visible; /* เพิ่มบรรทัดนี้: เพื่อให้จดหมายลอยออกมาได้ตอนเปิด */
+}
+
+#open:checked + .envelope .letter {
+  bottom: 200px;
+}
+
+</style>
+
+</head>
+<body>
+
+<input type="checkbox" id="open">
+
+<label for="open" class="envelope">
+  <div class="letter">
+    <p>
+      HAPPY VALENTINE DAY 💖<br><br>
+      idk ว่าจะชอบมั้ยแต่ตั้งใจทำให้นะ<br>
+      ก็เด็กคอมอ่ะเนาะ<br>
+      สู้ๆกับการทำงาน every day na<br>
+      ไว้ว่างๆเจอกันนะคะคนแก่>_<
+    </p>
+  </div>
+</label>
+
+</body>
+</html>
